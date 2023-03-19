@@ -601,32 +601,7 @@ export function Step7({
   );
 }
 
-// export function Step8() {
-//   return (
-//     <>
-//       <h1 className="text-4xl text-slate-100 font-medium mb-4 ml-4 -mt-5">
-//         Projects
-//       </h1>
-//       <p className="block text-slate-400 text-sm font-bold mb-2">
-//         Modify the settings below to change the presentation of your mint
-//         button. Embeds will only be available for the networks you have already
-//         deployed your contract on.our contract on.
-//       </p>
-//       <div className="mb-4 mt-9 ">
-//         <h3 className="text-slate-200 text-xl font-bold mb-2">View Project</h3>
-//         <p className="text-slate-400 text-sm font-semibold mb-2">
-//           This is the project that was deployed.
-//         </p>
-//         <div>
-//           <h3 className="text-md text-slate-400 font-bold pt-3 mt-2">
-//             {/* Project {noOfProject} */}
-//           </h3>
-//           {/* {viewProject} */}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
+
 
 export function Step9() {
   return (
