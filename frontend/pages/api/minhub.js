@@ -1,5 +1,5 @@
 import { ContractFactory, ethers } from "ethers";
-import { Step8 } from "../getstarted/steps";
+import { Step8 } from "../../components/steps";
 
 const projectStruct =
   "(string name , string symbol ,uint price, address contractAddress, address owner, string uri)";
@@ -44,7 +44,9 @@ export const viewProjects = async () => {
   return projects;
 };
 
-{/* <Step8 viewProjects={viewProjects} />; */}
+{
+  /* <Step8 viewProjects={viewProjects} />; */
+}
 
 export const noOfProjects = async () => {
   const minHubContract = await getContract();
