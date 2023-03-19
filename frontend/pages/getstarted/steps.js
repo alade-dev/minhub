@@ -5,7 +5,7 @@ import Image from "next/image";
 import {viewProjects, noOfProjects } from "../api/minhub";
 
 
-export function Step1({ formik }) {
+export default function Step1({ formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -118,7 +118,7 @@ export function Step1({ formik }) {
     </>
   );
 }
-export function Step2({ formik }) {
+export default function Step2({ formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -215,7 +215,7 @@ export function Step2({ formik }) {
     </>
   );
 }
-export function Step3({ formik }) {
+export default function Step3({ formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -319,7 +319,7 @@ export function Step3({ formik }) {
     </>
   );
 }
-export function Step4({ formik }) {
+export default function Step4({ formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -376,7 +376,7 @@ export function Step4({ formik }) {
     </>
   );
 }
-export function Step5({ formik }) {
+export default function Step5({ formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -423,7 +423,7 @@ export function Step5({ formik }) {
   );
 }
 
-export function Step6({ setCurrentStep, nftAddress, formik }) {
+export default function Step6({ setCurrentStep, nftAddress, formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -512,7 +512,7 @@ export function Step6({ setCurrentStep, nftAddress, formik }) {
   );
 }
 
-export function Step7({
+export default function Step7({
   metadata,
   token,
   name,
@@ -603,7 +603,7 @@ export function Step7({
 
 
 
-export function Step9() {
+export default function Step9() {
   return (
     <>
       <h1 className="text-4xl text-slate-100 font-medium mb-4 ml-4 -mt-5">
