@@ -7,7 +7,6 @@ import {
   Step5,
   Step6,
   Step7,
-  Step8,
   Step9,
 } from "../../components/Steps";
 import Link from "next/link";
