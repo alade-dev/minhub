@@ -9,7 +9,7 @@ import {
   Step7,
   Step8,
   Step9,
-} from "../../components/steps";
+} from "../../components/Steps";
 import Link from "next/link";
 import { useFormik } from "formik";
 import { NFTStorage, File } from "nft.storage";

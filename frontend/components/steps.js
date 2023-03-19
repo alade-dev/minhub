@@ -1,6 +1,6 @@
 import Link from "next/link";
-import pinata from "./images/pinata.png";
-import NFTstorage from "./images/NFTstorage.png";
+import pinata from "../pages/getstarted/images/pinata.png";
+import NFTstorage from "../pages/getstarted/images/NFTstorage.png";
 import Image from "next/image";
 import { viewProjects, noOfProjects } from "../pages/api/minhub";
 
@@ -600,7 +600,7 @@ export function Step7({
   );
 }
 
-export function Step9() {
+export default function Step9() {
   return (
     <>
       <h1 className="text-4xl text-slate-100 font-medium mb-4 ml-4 -mt-5">
