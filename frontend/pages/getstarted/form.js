@@ -7,7 +7,6 @@ import {
   Step5,
   Step6,
   Step7,
-  Step9,
 } from "../../components/Steps";
 import Link from "next/link";
 import { useFormik } from "formik";
@@ -58,7 +57,7 @@ const Form = () => {
     tokensupply: yup.number().positive().integer().required(),
     mintprice: yup.number().positive().integer().required(),
     walletmintlimit: yup.number().positive().integer().required(),
-    contentfolderCID: yup.string().required(),
+    // contentfolderCID: yup.string().required(),
     images: yup.array().required(),
   });
 
@@ -73,10 +72,10 @@ const Form = () => {
       tokensupply: "",
       mintprice: "",
       walletmintlimit: "",
-      contentfolderCID: "",
+      // contentfolderCID: "",
       images: [],
-      metadatajson: "",
-      metadatafolderCID: "",
+      // metadatajson: "",
+      // metadatafolderCID: "",
     },
     validationSchema: userSchema,
     onSubmit: async (values, { setSubmitting, setStatus }) => {
@@ -147,14 +146,18 @@ const Form = () => {
   });
 
   const handleChange = (event) => {
-    const fileList = event.target.files;
-    const images = [];
-    for (let i = 0; i < fileList.length; i++) {
-      images.push(fileList[i]);
-    }
-    setImages(images);
-    formik.setFieldValue("images", images);
+    const { value } = event.target;
+    formik.setFieldValue("token", value.toUpperCase());
   };
+  // const handleChange = (event) => {
+  //   const fileList = event.target.files;
+  //   const images = [];
+  //   for (let i = 0; i < fileList.length; i++) {
+  //     images.push(fileList[i]);
+  //   }
+  //   setImages(images);
+  //   formik.setFieldValue("images", images);
+  // };
 
   return (
     <div className="bg-gray-900 h-screen w-screen">
@@ -176,8 +179,8 @@ const Form = () => {
         </Link>
       </div>
 
-      <div className="pt-20 bg-gray-900 h-[1240px] pb-0 mb-0 flex">
-        <div className=" bg-gray-900 h-[1640px] lg:w-1/5 w-1/2">
+      <div className="pt-20 bg-gray-900 h-[740px] md:h-[1080px]  pb-0 mb-0 flex">
+        <div className=" bg-gray-900 h-[740px] md:h-[1080px] lg:w-1/5 w-1/2">
           <div className=" flex px-16 mx-auto  text-center">
             {features.categories.map((category) => (
               <div
@@ -226,7 +229,7 @@ const Form = () => {
                     >
                       Upload Content
                     </li>
-                    <li
+                    {/* <li
                       className={`${
                         currentStep === 4
                           ? "active:bg-slate-400 bg-slate-400 text-slate-700 font-semibold border rounded-md active:border"
@@ -235,44 +238,47 @@ const Form = () => {
                       onClick={() => setCurrentStep(4)}
                     >
                       Upload Metadata
-                    </li>
+                    </li> */}
                     <li
                       className={`${
-                        currentStep === 5
+                        currentStep === 4
                           ? "text-slate-300 text-xl font-semibold border rounded-md active:border"
                           : "text-slate-100 text-xl font-bold"
                       } cursor-pointer py-3 px-10 -m-2  p-2 flex justify-center font-medium  text-slate-100`}
-                      onClick={() => setCurrentStep(5)}
+                      onClick={() => setCurrentStep(4)}
                     >
                       Deploy
+                    </li>
+                    <li>
+                      <button
+                        className={`${
+                          currentStep === 5
+                            ? " active:bg-slate-100 bg-slate-100 text-slate-700 font-bold border rounded-md active:border"
+                            : "text-slate-400"
+                        } cursor-pointer py-3 px-10 -m-2 ml-4 p-2 flex justify-center font-medium text-xl  text-slate-100`}
+                        onClick={() => setCurrentStep(5)}
+                        disabled
+                      >
+                        Testnet
+                      </button>
                     </li>
                     <li
                       className={`${
                         currentStep === 6
-                          ? " active:bg-slate-100 bg-slate-100 text-slate-700 font-bold border rounded-md active:border"
-                          : "text-slate-400"
-                      } cursor-pointer py-3 px-10 -m-2  p-2 flex justify-center font-medium  text-slate-100`}
-                      onClick={() => setCurrentStep(6)}
-                    >
-                      Testnet
-                    </li>
-                    <li
-                      className={`${
-                        currentStep === 7
                           ? " text-slate-300 text-xl font-semibold border rounded-md active:border"
                           : "text-slate-100 text-xl "
                       } cursor-pointer py-3 px-10 -m-2  p-2 flex justify-center font-medium  text-slate-100`}
-                      onClick={() => setCurrentStep(7)}
+                      onClick={() => setCurrentStep(6)}
                     >
                       Dashboard
                     </li>
                     <li
                       className={`${
-                        currentStep === 7
+                        currentStep === 6
                           ? "active:bg-slate-100 bg-slate-100 text-slate-700 font-bold border rounded-md active:border"
                           : "text-slate-400"
                       } cursor-pointer py-3 px-10 -m-2  p-2 flex justify-center font-medium  text-slate-100`}
-                      onClick={() => setCurrentStep(7)}
+                      onClick={() => setCurrentStep(6)}
                     >
                       Testnet confirm
                     </li>
@@ -288,21 +294,21 @@ const Form = () => {
                     </li> */}
                     <li
                       className={`${
-                        currentStep === 9
+                        currentStep === 7
                           ? " text-slate-300 text-xl font-semibold border rounded-md active:border"
                           : "text-slate-100 text-xl "
                       } cursor-pointer py-3 px-10 -m-2  p-2 flex justify-center font-medium  text-slate-100`}
-                      onClick={() => setCurrentStep(9)}
+                      onClick={() => setCurrentStep(7)}
                     >
                       Mint
                     </li>
                     <li
                       className={`${
-                        currentStep === 9
+                        currentStep === 7
                           ? "active:bg-slate-100 bg-slate-100 text-slate-700 font-bold border rounded-md active:border"
                           : "text-slate-400"
                       } cursor-pointer py-3 px-10 -m-2  p-2 flex justify-center font-medium  text-slate-100`}
-                      onClick={() => setCurrentStep(9)}
+                      onClick={() => setCurrentStep(7)}
                     >
                       Button Settings
                     </li>
@@ -329,24 +335,26 @@ const Form = () => {
         </div>
 
         <form
-          className="bg-gray-900 lg:w-4/5 w-1/2 h-[1640px] px-8 pt-6 pb-8 mb-4"
+          className="bg-gray-900 lg:w-4/5 w-1/2 h-[740px] md:h-[1080px]  px-8 pt-6 pb-8 mb-4"
           onSubmit={formik.handleSubmit}
         >
-          {currentStep === 1 && <Step1 formik={formik} />}
+          {currentStep === 1 && (
+            <Step1 formik={formik} handleChange={handleChange} />
+          )}
           {currentStep === 2 && <Step2 formik={formik} />}
           {currentStep === 3 && <Step3 formik={formik} />}
+          {/* {currentStep === 4 && <Step4 formik={formik} />} */}
           {currentStep === 4 && <Step4 formik={formik} />}
-          {currentStep === 5 && <Step5 formik={formik} />}
-          {currentStep === 6 && (
-            <Step6
+          {currentStep === 5 && (
+            <Step5
               setCurrentStep={setCurrentStep}
               nftAddress={nftAddress}
               currentStep={currentStep}
               formik={formik}
             />
           )}
-          {currentStep === 7 && (
-            <Step7
+          {currentStep === 6 && (
+            <Step6
               metadata={metadata}
               nftAddress={nftAddress}
               name={name}
@@ -356,7 +364,7 @@ const Form = () => {
             />
           )}
           {/* {currentStep === 8 && <Step8 />} */}
-          {currentStep === 9 && <Step9 />}
+          {currentStep === 7 && <Step7 />}
 
           <div className="flex justify-between items-center  mt-14">
             {currentStep > 1 && (
@@ -376,7 +384,7 @@ const Form = () => {
             >
               Deploy
             </button>)} */}
-            {currentStep < 5 && (
+            {currentStep < 4 && (
               <button
                 type="button"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

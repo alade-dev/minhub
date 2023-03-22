@@ -4,7 +4,7 @@ import NFTstorage from "../pages/getstarted/images/NFTstorage.png";
 import Image from "next/image";
 import { viewProjects, noOfProjects } from "../pages/api/minhub";
 
-export function Step1({ formik }) {
+export function Step1({ formik, handleChange }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -49,7 +49,7 @@ export function Step1({ formik }) {
             type="text"
             placeholder="Token Symbol"
             required
-            onChange={formik.handleChange}
+            onChange={handleChange}
             value={formik.values.token}
           />
         </div>
@@ -271,27 +271,8 @@ export function Step3({ formik }) {
             </div>
           </div>
         </Link>
-        <div className="mb-4 mt-5 ">
-          <label
-            className="block text-slate-900 text-xl font-bold mb-2"
-            htmlFor="contentfolderCID"
-          >
-            Content Folder CID
-          </label>
-          <p className="text-sm text-slate-400 my-2">
-            Provide CID for your content folder.
-          </p>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"
-            id="contentfolderCID"
-            type="text"
-            placeholder="Input CID"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.contentfolderCID}
-          />
-        </div>
-        <div className="mb-4   ">
+
+        <div className="mb-4  mt-5 ">
           <label
             className="block text-slate-900 text-xl font-bold mb-2"
             htmlFor="contentfileextension"
@@ -318,64 +299,64 @@ export function Step3({ formik }) {
     </>
   );
 }
+// export function Step4({ formik }) {
+//   return (
+//     <>
+//       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
+//         Upload Metadata
+//       </h1>
+//       <p className="text-md text-slate-200 font-medium pt-3 my-3">
+//         It's god practice to add metadata to your collection. This metadata can
+//         be used by marketplaces to display the features of each item in your
+//         collection. Below is an example of how the metadata file for each item
+//         in the collection should look like.
+//       </p>
+//       <p className="text-md text-slate-200 font-medium pt-3 my-3">
+//         Upload your folder with metadata to IPFS like you did with content and
+//         provide folder CID. Each file should match a token number - for example;
+//         1.png's metadata should have a matching 1.json like here.
+//       </p>
+
+//       <textarea
+//         className="text-md p-28 px-16  bg-zinc-200  text-slate-600 font-medium pt-10 h-[200px] w-full"
+//         id="metadatajson"
+//         type="text"
+//         placeholder='{&#10;"name": "name #1",&#10;
+//         "description": "description #1",&#10;"attributes": [...],&#10;"images": "ipfs://_YOUR_CONTENT_FOLDER_CID_/1.png",&#10;//anything else you want to add&#10;}'
+//         required
+//         onChange={formik.handleChange}
+//         value={formik.values.metadatajson}
+//       ></textarea>
+//       <p className="underline text-md text-slate-50 font-semibold">
+//         <a href="#" target="_blank">
+//           Download sample
+//         </a>
+//       </p>
+
+//       <div className="mb-4 mt-5 ">
+//         <label
+//           className="block text-slate-200 text-xl font-bold mb-2"
+//           htmlFor="contentfolderCID"
+//         >
+//           Metadata Folder CID
+//         </label>
+//         <p className="text-sm text-slate-400 my-2">
+//           Provide CID for your content folder.
+//         </p>
+//         <input
+//           className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"
+//           id="metadatafolderCID"
+//           type="text"
+//           placeholder="Input CID"
+//           required
+//           onChange={formik.handleChange}
+//           value={formik.values.metadatafolderCID}
+//         />
+//       </div>
+//     </>
+//   );
+// }
 export function Step4({ formik }) {
-  return (
-    <>
-      <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
-        Upload Metadata
-      </h1>
-      <p className="text-md text-slate-200 font-medium pt-3 my-3">
-        It's god practice to add metadata to your collection. This metadata can
-        be used by marketplaces to display the features of each item in your
-        collection. Below is an example of how the metadata file for each item
-        in the collection should look like.
-      </p>
-      <p className="text-md text-slate-200 font-medium pt-3 my-3">
-        Upload your folder with metadata to IPFS like you did with content and
-        provide folder CID. Each file should match a token number - for example;
-        1.png's metadata should have a matching 1.json like here.
-      </p>
-
-      <textarea
-        className="text-md p-28 px-16  bg-zinc-200  text-slate-600 font-medium pt-10 h-[200px] w-full"
-        id="metadatajson"
-        type="text"
-        placeholder='{&#10;"name": "name #1",&#10;
-        "description": "description #1",&#10;"attributes": [...],&#10;"images": "ipfs://_YOUR_CONTENT_FOLDER_CID_/1.png",&#10;//anything else you want to add&#10;}'
-        required
-        onChange={formik.handleChange}
-        value={formik.values.metadatajson}
-      ></textarea>
-      <p className="underline text-md text-slate-50 font-semibold">
-        <a href="#" target="_blank">
-          Download sample
-        </a>
-      </p>
-
-      <div className="mb-4 mt-5 ">
-        <label
-          className="block text-slate-200 text-xl font-bold mb-2"
-          htmlFor="contentfolderCID"
-        >
-          Metadata Folder CID
-        </label>
-        <p className="text-sm text-slate-400 my-2">
-          Provide CID for your content folder.
-        </p>
-        <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"
-          id="metadatafolderCID"
-          type="text"
-          placeholder="Input CID"
-          required
-          onChange={formik.handleChange}
-          value={formik.values.metadatafolderCID}
-        />
-      </div>
-    </>
-  );
-}
-export function Step5({ formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -422,7 +403,7 @@ export function Step5({ formik }) {
   );
 }
 
-export function Step6({ setCurrentStep, nftAddress, formik }) {
+export function Step5({ setCurrentStep, nftAddress, formik }) {
   return (
     <>
       <h1 className="text-3xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -511,7 +492,7 @@ export function Step6({ setCurrentStep, nftAddress, formik }) {
   );
 }
 
-export function Step7({
+export function Step6({
   metadata,
   token,
   name,
@@ -600,7 +581,7 @@ export function Step7({
   );
 }
 
-export default function Step9() {
+export  function Step7() {
   return (
     <>
       <h1 className="text-4xl text-slate-100 font-medium mb-4 ml-4 -mt-5">

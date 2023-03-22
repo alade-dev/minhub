@@ -29,7 +29,7 @@ async function viewProject() {
     console.log(projects[i]);
   }
   return projects;
-};
+}
 
 export async function addProject(name, symbol, price, uri) {
   const minHubContract = await getContract();
@@ -39,7 +39,7 @@ export async function addProject(name, symbol, price, uri) {
     price,
     contractAddr,
     uri,
-    {"value": 10000000000000000000n}
+    { value: 10000000000000000000n }
   );
   await tx.wait();
 }

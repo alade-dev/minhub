@@ -17,7 +17,7 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    name: "Fantom Blockchain",
+    name: "Mantle Blockchain",
     description:
       "One of the leading blockchains High efficiency along with low commissions.",
     icon: GlobeAltIcon,

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Nftcol from './images/NFTcollection.png';
 import logo from './images/minhub.png';
-import btnlogo from './images/fantom.png';
+import btnlogo from './images/mantle.png';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { providers } from 'ethers';
@@ -89,8 +89,12 @@ export default function started() {
           className="lg:inline-flex"
           onClick={isConnected ? handleDisconnect : handleClick}
         >
-          <button className="rounded-full flex justify-around items-center px-6 py-4 text-2xl font-semibold leading-6 text-white bg-blue-700 shadow-sm ring-1 ring-gray-900/10 active:ring-gray-900/20 focus:ring-2 active:ring-blue-500 active:ring-offset-2">
-            <Image className="w-5 h-5" src={btnlogo} alt="minhub" />
+          <button className="rounded-full flex  justify-around items-center px-6 py-4 text-2xl font-semibold leading-6 text-white bg-blue-700 shadow-sm ring-1 ring-gray-900/10 active:ring-gray-900/20 focus:ring-2 active:ring-blue-500 active:ring-offset-2">
+            <Image
+              className="w-5 h-5 justify-center items-center"
+              src={btnlogo}
+              alt="minhub"
+            />
             <span className="ml-2">
               {isConnected ? `${account.slice(0, 8)}...` : "Connect to Mantle"}
             </span>
