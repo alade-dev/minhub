@@ -14,19 +14,19 @@ export default function started() {
     try {
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: '0xfa2' }],
+        params: [{ chainId: '0x1389' }],
       })
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
         params: [
           {
-            chainId: "0xfa2",
-            chainName: "Fantom Opera Testnet",
-            rpcUrls: ["https://rpc.testnet.fantom.network"],
-            blockExplorerUrls: ["https://testnet.ftmscan.com"],
+            chainId: "0x1389",
+            chainName: "Mantle Goerli",
+            rpcUrls: ["https://rpc.testnet.mantle.xyz/"],
+            blockExplorerUrls: ["https://explorer.testnet.mantle.xyz/"],
             nativeCurrency: {
-              name: "Fantom",
-              symbol: "FTM",
+              name: "",
+              symbol: "BIT",
               decimals: 18,
             },
           },
@@ -44,14 +44,14 @@ export default function started() {
                 method: 'wallet_addEthereumChain',
                 params: [
                     {
-                        chainId: '0xfa2',
-                        chainName: 'Fantom Opera Testnet',
+                        chainId: '0x1389',
+                        chainName: 'Mantle Goerli',
                         nativeCurrency: {
-                            name: 'Fantom',
-                            symbol: 'FTM',
+                            name: 'BitDAO',
+                            symbol: 'BIT',
                             decimals: 18,
                         },
-                        rpcUrls: ['https://rpc.testnet.fantom.network'],
+                        rpcUrls: ['https://rpc.testnet.mantle.xyz/'],
                     },
                 ],
             });
@@ -92,7 +92,7 @@ export default function started() {
           <button className="rounded-full flex justify-around items-center px-6 py-4 text-2xl font-semibold leading-6 text-white bg-blue-700 shadow-sm ring-1 ring-gray-900/10 active:ring-gray-900/20 focus:ring-2 active:ring-blue-500 active:ring-offset-2">
             <Image className="w-5 h-5" src={btnlogo} alt="minhub" />
             <span className="ml-2">
-              {isConnected ? `${account.slice(0, 8)}...` : "Connect to Fantom"}
+              {isConnected ? `${account.slice(0, 8)}...` : "Connect to Mantle"}
             </span>
           </button>
         </div>
@@ -141,7 +141,7 @@ export default function started() {
         </Link>
       </div>
       <p className="mx-auto pl-2 mt-6 max-w-2xl text-center font-bold text-lg leading-8 text-gray-600">
-        Click on "Add new project" button to create new ERC20/ERC217 (NFT)
+        Click on "Add new project" button to create new ERC20/ERC721 (NFT)
         Collection
       </p>
       <div className=" flex items-center mt-8">
