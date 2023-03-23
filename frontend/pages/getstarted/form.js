@@ -120,7 +120,7 @@ const Form = () => {
             console.log(minHub.address);
             setNftAddress(minHub.address);
             console.log(`${name}, ${token}, ${metadata.url}`);
-            await addProjects(name, token, 1, metadata.url);
+            await addProjects(name, token, 1, minHub.address, metadata.url);
             console.log("Added");
           } catch (err) {
             console.log(err);

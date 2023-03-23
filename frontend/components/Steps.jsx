@@ -40,8 +40,7 @@ export function Step1({ formik, handleChange }) {
             Token Symbol
           </label>
           <p className="text-sm text-slate-400 my-2">
-            This is the token symbol for your project. For example; +FTM+,
-            +NFT(FTM17/FTM37)+, +FKM+
+            This is the token symbol for your project. For example; BIT,
           </p>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"

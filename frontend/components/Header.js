@@ -115,7 +115,7 @@ export default function Header() {
             </motion.h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-900">
               MinHub is a one-stop service for all NFT creators. MinHub allows
-              you to generate and deploy a ERC-721 contract on the Klatyn
+              you to generate and deploy a ERC-721 contract on the Mantle
               blockchain with any information and features. After the
               deployment, you can use mint button for integration, with which
               anyone can mint your NFT collection.

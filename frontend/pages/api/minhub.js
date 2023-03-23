@@ -1,4 +1,5 @@
 import { ContractFactory, ethers } from "ethers";
+import nft from "../../utils/MinHub.json";
 import { Step8 } from "../../components/Steps";
 
 const projectStruct =
@@ -31,13 +32,13 @@ async function viewProject() {
   return projects;
 }
 
-export async function addProject(name, symbol, price, uri) {
+export async function addProject(name, symbol, price, projectAddr, uri) {
   const minHubContract = await getContract();
   var tx = await minHubContract.addProject(
     name,
     symbol,
     price,
-    contractAddr,
+    projectAddr,
     uri,
     { value: 10000000000000000000n }
   );
@@ -54,3 +55,16 @@ const noOfProjects = async () => {
   console.log(count);
   return count;
 };
+
+
+async function mintNFT(projectAddr) {
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum); // A connection to the Ethereum network
+    var signer = await provider.getSigner(); // Holds your private key and can sign things
+    const pContract = new ethers.Contract(projectAddr, nft.abi, signer);
+    mintTX = await  pContract.mint(2, {"value": 100000000000000000n});
+    await mintTX.wait();
+  } catch (error) {
+    console.log(error);
+  }
+}

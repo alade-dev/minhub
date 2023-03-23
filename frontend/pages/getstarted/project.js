@@ -16,7 +16,7 @@ const project = () => {
           Project Setting
         </h1>
         <p className="block text-slate-400 pl-48 text-sm font-bold mb-2 w-[960px]">
-          check your deployed projects here.
+          Check your deployed projects here.
         </p>
         <div className="absolute pl-48 mb-4 mt-16 items-center justify-center  ">
           <h3 className="text-slate-200 text-3xl font-bold mb-2">Projects</h3>
