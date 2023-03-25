@@ -95,7 +95,6 @@ event - compiled successfully
 
 <li>Nft Marketplace</li>
 <li>NFT Teleport (NFT Bridge)</li>
-<li>Dapp Browser</li>
 <br>
 
 ## 🔗 Presentation
