@@ -273,26 +273,28 @@ export function Step3({ formik }) {
 
         <div className="mb-4  mt-5 ">
           <label
-            className="block text-slate-900 text-xl font-bold mb-2"
+            className="block text-slate-200 text-xl font-bold mb-2"
             htmlFor="contentfileextension"
           >
             Content File Extension
           </label>
           <p className="text-sm text-slate-400 my-2">
-            Upload the image for your project content. Only accept .png, .jpg,
+            Upload the image for your project content. Only accept .png,
             .jpeg extensions
           </p>
           <input
             className="shadow  appearance-none border rounded w-full py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"
-            id="contentfileextension"
+            id="image"
             type="file"
             multiple
-            accept=".png, .jpg, .jpeg"
-            placeholder=".png, .jpg, .jpeg"
+            accept=".png, .jpeg"
+            placeholder=".png, .jpeg"
             required
-            onChange={formik.handleChange}
-            value={formik.values.image}
-          />
+            onChange={(event) => {
+              formik.setFieldValue("image", event.target.files[0]);
+            }}
+            />
+            {formik.errors.image ? <div className="text-slate-300 mt-4">{formik.errors.image}</div> : null}
         </div>
       </div>
     </>

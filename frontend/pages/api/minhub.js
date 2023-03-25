@@ -35,7 +35,6 @@ export async function viewProject() {
     uri: project.uri,
   }));
 
-  console.log(structuredProjects.uri);
   return structuredProjects;
 }
 

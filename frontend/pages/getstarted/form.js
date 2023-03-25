@@ -48,17 +48,38 @@ const Form = () => {
   const router = useRouter();
 
   const userSchema = yup.object().shape({
-    name: yup.string().required(),
-    token: yup.string().required(),
-    description: yup.string().required(),
-    website: yup.string().required(),
-    royalties: yup.number().positive().integer().required(),
-    mintspertrans: yup.string().required(),
-    tokensupply: yup.number().positive().integer().required(),
-    mintprice: yup.number().positive().integer().required(),
-    walletmintlimit: yup.number().positive().integer().required(),
+    name: yup.string().required("Name is required"),
+    token: yup.string().required("Token is required"),
+    description: yup.string().required("Description is required"),
+    website: yup.string().required("Website is required"),
+    royalties: yup
+      .number()
+      .positive()
+      .integer()
+      .required("Royalties must be a positive integer"),
+    mintspertrans: yup.string().required("Mints per transaction is required"),
+    tokensupply: yup
+      .number()
+      .positive()
+      .integer()
+      .required("Token supply must be a positive integer"),
+    mintprice: yup
+      .number()
+      .positive()
+      .integer()
+      .required("Mint price is required"),
+    walletmintlimit: yup
+      .number()
+      .positive()
+      .integer()
+      .required("Wallet mint limit is is required"),
     // contentfolderCID: yup.string().required(),
-    images: yup.array().required(),
+    image: yup
+      .mixed()
+      .required("An image file is required")
+      .test("fileFormat", "Only PNG and JPEG files are accepted", (value) => {
+        return value && ["image/png", "image/jpeg"].includes(value.type);
+      }),
   });
 
   const formik = useFormik({
@@ -73,7 +94,7 @@ const Form = () => {
       mintprice: "",
       walletmintlimit: "",
       // contentfolderCID: "",
-      image: [],
+      image: null,
       // metadatajson: "",
       // metadatafolderCID: "",
     },
@@ -85,7 +106,12 @@ const Form = () => {
         const NFT_STORAGE_TOKEN =
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDdjMTVkRTM4NUU0Mzc1M0RBODNGZUE0NjgzZkZhMzc4RTFjZTUyZjEiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY2ODk3NjUxMTc3NCwibmFtZSI6IkRvY1QifQ.t7bF1OuxuS6S9QMP_rfl72fYMneOa1jzs-mZhdjEhog";
         const client = new NFTStorage({ token: NFT_STORAGE_TOKEN });
-        const imageFile = new File(values.image, { type: "image/png" });
+        const imageFile = new File([values.image], values.image.name, {
+          type: values.image.type,
+        });
+
+        // console.log(imageFile);
+
         const metadata = await client.store({
           name: values.name,
           description: values.description,
@@ -119,8 +145,6 @@ const Form = () => {
             console.log("Deployed");
             console.log(minHub.address);
             setNftAddress(minHub.address);
-            // console.log(`${name}, ${token}, ${metadata.url}`);
-            // await mintNFT(minHub.address);
             await addProjects(
               metadata.data.name,
               metadata.data.token,
