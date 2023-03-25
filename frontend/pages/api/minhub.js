@@ -34,7 +34,8 @@ export async function viewProject() {
     nftAddress: project.contractAddress,
     uri: project.uri,
   }));
-  
+
+  console.log(structuredProjects.uri);
   return structuredProjects;
 }
 
@@ -67,7 +68,7 @@ export async function mintNFT(projectAddr) {
     const provider = new ethers.providers.Web3Provider(window.ethereum); // A connection to the Ethereum network
     var signer = await provider.getSigner(); // Holds your private key and can sign things
     const pContract = new ethers.Contract(projectAddr, nft.abi, signer);
-    mintTX = await pContract.mint(2, { value: 100000000000000000n });
+    const mintTX = await pContract.mint(2, { value: 100000000000000000n });
     await mintTX.wait();
   } catch (error) {
     console.log(error);
