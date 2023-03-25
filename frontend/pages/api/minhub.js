@@ -34,7 +34,8 @@ export async function viewProject() {
     nftAddress: project.contractAddress,
     uri: project.uri,
   }));
-  
+
+  console.log(structuredProjects.uri);
   return structuredProjects;
 }
 
