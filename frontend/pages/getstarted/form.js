@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import * as yup from "yup";
 import { ContractFactory, ethers } from "ethers";
 import nft from "../../utils/MinHub.json";
-import { addProject } from "../api/minhub";
+import { addProject, mintNFT } from "../api/minhub";
 
 const features = {
   categories: [
@@ -119,8 +119,15 @@ const Form = () => {
             console.log("Deployed");
             console.log(minHub.address);
             setNftAddress(minHub.address);
-            console.log(`${name}, ${token}, ${metadata.url}`);
-            await addProjects(name, token, 1, minHub.address, metadata.url);
+            // console.log(`${name}, ${token}, ${metadata.url}`);
+            // await mintNFT(minHub.address);
+            await addProjects(
+              metadata.data.name,
+              metadata.data.token,
+              1,
+              minHub.address,
+              metadata.data.image
+            );
             console.log("Added");
           } catch (err) {
             console.log(err);
@@ -179,8 +186,8 @@ const Form = () => {
         </Link>
       </div>
 
-      <div className="pt-20 bg-gray-900 h-[740px] md:h-[1080px]  pb-0 mb-0 flex">
-        <div className=" bg-gray-900 h-[740px] md:h-[1080px] lg:w-1/5 w-1/2">
+      <div className="pt-20 bg-gray-900 lg:h-[940px] w-screen md:h-[1440px]   pb-0 mb-0 flex">
+        <div className=" bg-gray-900 h-[1040px]  lg:w-1/5 w-1/2">
           <div className=" flex px-16 mx-auto  text-center">
             {features.categories.map((category) => (
               <div
@@ -335,7 +342,7 @@ const Form = () => {
         </div>
 
         <form
-          className="bg-gray-900 lg:w-4/5 w-1/2 h-[740px] md:h-[1080px]  px-8 pt-6 pb-8 mb-4"
+          className="bg-gray-900 lg:w-4/5 w-1/2 h-[1040px]   px-8 pt-6 pb-8 mb-4"
           onSubmit={formik.handleSubmit}
         >
           {currentStep === 1 && (
