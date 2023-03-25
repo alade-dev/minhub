@@ -47,6 +47,10 @@ In addition to simplifying the creation of NFTs, MinHub would also improve the o
 Start the Next.js development server on the default port 3000 with:
 
 ```
+cd frontend
+```
+
+```
 npm install
 ```
 
@@ -57,6 +61,10 @@ npm run dev
 or
 
 (Recommended) Start the Next.js development server on the default port 3000 using Yarn:
+
+```
+cd frontend
+```
 
 ```
 yarn install
