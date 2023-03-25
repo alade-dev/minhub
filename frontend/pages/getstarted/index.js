@@ -36,7 +36,7 @@ export default function started() {
       const account = await accounts[0];
       setAccount(account);
    
-      console.log(account);
+      // console.log(account);
     } catch (switchError) {
       if (switchError.code === 4902) {
         try {

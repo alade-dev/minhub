@@ -120,19 +120,21 @@ const Form = () => {
           token: values.token,
           image: imageFile,
         });
+
+        
         if (window.ethereum) {
           try {
             // deploying
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
-            console.log(signer);
+            // console.log(signer);
             //import nft from "./utils/MinHub.json";
             const minHubContract = new ethers.ContractFactory(
               nft.abi,
               nft.object,
               signer
             );
-            console.log("Created Contract");
+            // console.log("Created Contract");
             const minHub = await minHubContract.deploy(
               name,
               token,
@@ -142,17 +144,17 @@ const Form = () => {
 
             // console.log("Awaiting deploy");
             await minHub.deployed();
-            console.log("Deployed");
-            console.log(minHub.address);
+            // console.log("Deployed");
+            // console.log(minHub.address);
             setNftAddress(minHub.address);
             await addProjects(
               metadata.data.name,
               metadata.data.token,
               1,
               minHub.address,
-              metadata.data.image
+              metadata.data.image.href
             );
-            console.log("Added");
+            // console.log("Added");
           } catch (err) {
             console.log(err);
           }

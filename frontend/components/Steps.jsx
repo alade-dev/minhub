@@ -133,7 +133,7 @@ export function Step2({ formik }) {
           <input
             className="shadow appearance-none border rounded w-45 py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"
             id="mintspertrans"
-            type="text"
+            type="number"
             placeholder="1"
             required
             onChange={formik.handleChange}
@@ -176,7 +176,7 @@ export function Step2({ formik }) {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"
             id="mintprice"
-            type="text"
+            type="number"
             placeholder="ex: 1"
             required
             onChange={formik.handleChange}
@@ -198,7 +198,7 @@ export function Step2({ formik }) {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-600 leading-tight focus:outline-none focus:shadow-outline"
             id="walletmintlimit"
-            type="text"
+            type="number"
             placeholder="ex: 1"
             required
             onChange={formik.handleChange}

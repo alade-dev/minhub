@@ -6,7 +6,6 @@ import Image from "next/image";
 const project = () => {
   const [projects, setProjects] = useState([]);
 
-  // console.log(projects);
 
   const fetchProject = async () => {
     const project = await viewProject();
@@ -34,7 +33,7 @@ const project = () => {
           Check your deployed projects here.
         </p>
 
-        <div className="  h-full md:h-[300vh] lg:h-[150vh] bg-[#1e2c2e]   ">
+        <div className="  h-full  bg-[#1e2c2e]   ">
           <div className=" mb-4 mt-16 items-center lg:pl-[82px]  px-2  ">
             <h3 className="text-slate-200 text-3xl font-bold mb-2">Projects</h3>
             <hr className="w-80 border-2 border-slate-200" />
@@ -57,7 +56,7 @@ const project = () => {
                 >
                   <img
                     className="w-full h-48 object-cover"
-                    src={`https://ipfs.io/ipfs/${project.uri.slice(6)} /`}
+                    src={`https://ipfs.io/ipfs/${project.uri.slice(6)}`}
                     alt={project.name}
                   />
                   <div className="p-4">
