@@ -6,7 +6,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const FANTOM = process.env.FANTOM;
+const MANTLE = process.env.MANTLE;
 
 task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
@@ -19,9 +19,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const config: HardhatUserConfig = {
   solidity: "0.8.17",
   networks: {
-    fantom: {
-      chainId: 3141,
-      url: FANTOM,
+    mantle_testnet: {
+      chainId: 5001,
+      url: MANTLE,
       accounts: PRIVATE_KEY ? [`0x${PRIVATE_KEY}`] : [],
     },
   },
