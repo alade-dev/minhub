@@ -23,13 +23,19 @@ const getContract = async () => {
   }
 };
 
-async function viewProject() {
+export async function viewProject() {
   const minHubContract = await getContract();
   var projects = await minHubContract.viewProjects();
-  for (let i = 0; i < projects.length; i++) {
-    console.log(projects[i]);
-  }
-  return projects;
+  const structuredProjects = projects.map((project) => ({
+    owner: project.owner,
+    name: project.name,
+    symbol: project.symbol,
+    price: project.price.toNumber(),
+    nftAddress: project.contractAddress,
+    uri: project.uri,
+  }));
+  
+  return structuredProjects;
 }
 
 export async function addProject(name, symbol, price, projectAddr, uri) {
@@ -49,20 +55,19 @@ export async function addProject(name, symbol, price, projectAddr, uri) {
   /* <Step8 viewProjects={viewProjects} />; */
 }
 
-const noOfProjects = async () => {
+export const noOfProjects = async () => {
   const minHubContract = await getContract();
   count = await minHubContract.noOfProjects();
-  console.log(count);
+  // console.log(count);
   return count;
 };
 
-
-async function mintNFT(projectAddr) {
+export async function mintNFT(projectAddr) {
   try {
     const provider = new ethers.providers.Web3Provider(window.ethereum); // A connection to the Ethereum network
     var signer = await provider.getSigner(); // Holds your private key and can sign things
     const pContract = new ethers.Contract(projectAddr, nft.abi, signer);
-    mintTX = await  pContract.mint(2, {"value": 100000000000000000n});
+    mintTX = await pContract.mint(2, { value: 100000000000000000n });
     await mintTX.wait();
   } catch (error) {
     console.log(error);

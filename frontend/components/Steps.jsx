@@ -491,14 +491,7 @@ export function Step5({ setCurrentStep, nftAddress, formik }) {
   );
 }
 
-export function Step6({
-  metadata,
-  token,
-  name,
-  nftAddress,
-  formik,
-  setCurrentStep,
-}) {
+export function Step6({ metadata, token, name, nftAddress, formik }) {
   return (
     <>
       <h1 className="text-4xl text-slate-50 font-medium mb-4 ml-4 -mt-5">
@@ -567,45 +560,50 @@ export function Step6({
             Project
           </h3>
           <hr className="w-96 border-2 border-slate-200" />
-          <button
-            className="shadow-md active:bg-white active:text-blue-600 hover:bg-slate-200 hover:text-slate-400 appearance-none border w-96 ml-9 mt-4 rounded py-3 px-3 font-medium text-slate-50 leading-tight  hover:shadow-outline active:shadow-lg"
-            disabled={formik.isSubmitting}
-            onClick={() => setCurrentStep(8)}
-          >
-            Project
-          </button>
+          <p className="text-md text-slate-400 my-2">
+            View your available project here.
+          </p>
+          <Link href={"/getstarted/project"}>
+            <button
+              className="shadow-md active:bg-white active:text-blue-600 hover:bg-slate-200 hover:text-slate-400 appearance-none border w-96 ml-9 mt-4 rounded py-3 px-3 font-medium text-slate-50 leading-tight  hover:shadow-outline active:shadow-lg"
+              disabled={formik.isSubmitting}
+            >
+              Project
+            </button>
+          </Link>
         </div>
       </div>
     </>
   );
 }
 
-export  function Step7() {
+export function Step7() {
   return (
     <>
       <h1 className="text-4xl text-slate-100 font-medium mb-4 ml-4 -mt-5">
         Button Settings
       </h1>
       <p className="block text-slate-400 text-sm font-bold mb-2">
-        Modify the settings below to change the presentation of your mint
-        button. Embeds will only be available for the networks you have already
-        deployed your contract on.our contract on.
+        This will only be available for the networks you have already deployed
+        your contract on your contract.
       </p>
       <div className="mb-4 mt-9 ">
         <h3 className="text-slate-200 text-xl font-bold mb-2">Settings</h3>
         <hr className="w-96 border-2 border-slate-200" />
 
         <div>
-          <h3 className="text-md text-slate-400 font-bold pt-3 mt-2">
-            Open Mint Text
+          <h3 className="text-2xl text-slate-400 font-bold my-3 pt-3 mt-2">
+            Open Mint
           </h3>
           <p className="text-slate-400 text-sm font-semibold mb-2">
-            This is the text that will be on the button when the mint is open
+            Go to the project page to mint your available NFT.
           </p>
           <div className="text-center flex items-center justify-start">
-            <button className="text-md bg-green-400 text-black  p-5 my-2 shadow-md appearance-none border w-32 mt-4 rounded py-3 px-3 font-semibold  leading-tight  hover:shadow-outline active:shadow-lg">
-              Mint
-            </button>
+            <Link href={"/getstarted/project"}>
+              <button className="text-md bg-green-400 text-black  p-5 my-2 shadow-md appearance-none border w-32 mt-4 rounded py-3 px-3 font-semibold  leading-tight  active:bg-black active:text-white hover:bg-green-300 transition duration-200 ease-in   hover:shadow-outline active:shadow-lg">
+                Mint
+              </button>
+            </Link>
           </div>
         </div>
       </div>
