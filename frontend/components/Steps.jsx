@@ -183,7 +183,7 @@ export function Step2({ formik }) {
             value={formik.values.mintprice}
           />
           <p className="text-sm text-slate-400 pt-3 my-2">
-            Set the base price (in BIT) of your NFTs. Type =0= if you want them
+            Set the base price (in KLAY) of your NFTs. Type =0= if you want them
             to be free of charge. This can be updated at any time after
             deployment.
           </p>
