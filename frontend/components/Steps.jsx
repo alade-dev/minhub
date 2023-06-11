@@ -2,7 +2,7 @@ import Link from "next/link";
 import pinata from "../getstarted/images/pinata.png";
 import NFTstorage from "../getstarted/images/NFTstorage.png";
 import Image from "next/image";
-import { viewProjects, noOfProjects } from "../api/minhub";
+import { viewProjects, noOfProjects } from "../pages/api/minhub";
 
 export function Step1({ formik, handleChange }) {
   return (
