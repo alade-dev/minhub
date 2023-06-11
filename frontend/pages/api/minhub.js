@@ -1,6 +1,6 @@
 import { ContractFactory, ethers } from "ethers";
 import nft from "../../utils/MinHub.json";
-import { Step8 } from "../../components/Steps";
+// import { Step8 } from "../../components/Steps";
 
 const projectStruct =
   "(string name , string symbol ,uint price, address contractAddress, address owner, string uri)";
