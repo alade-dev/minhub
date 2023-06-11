@@ -56,7 +56,7 @@ const project = () => {
                 >
                   <img
                     className="w-full h-48 object-cover"
-                    src={`https://ipfs.io/ipfs/${project.uri.slice(6)}`}
+                    src={`https://ipfs.io/ipfs${project.uri.slice(6)}`}
                     alt={project.name}
                   />
                   <div className="p-4">
