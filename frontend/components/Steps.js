@@ -1,6 +1,6 @@
 import Link from "next/link";
-import pinata from "../getstarted/images/pinata.png";
-import NFTstorage from "../getstarted/images/NFTstorage.png";
+import pinata from "../pages/getstarted/images/pinata.png";
+import NFTstorage from "../pages/getstarted/images/NFTstorage.png";
 import Image from "next/image";
 import { viewProjects, noOfProjects } from "../pages/api/minhub";
 
